@@ -1,5 +1,5 @@
-var $suLu = $('<ul><span><input type="checkbox">Don Papá</span></ul>');
-
+﻿var $suLu = $('<ul><span><input type="checkbox">Don Papá</span></ul>');
+//remiví  ideá
 $.getJSON("Tree.json", function($data){
 
     for(j=0; j<$data.length; j++){
