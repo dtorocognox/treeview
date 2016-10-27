@@ -1,0 +1,265 @@
+[
+  {
+    "Colombia": [
+      {
+        "Amazonas": []
+      },
+      {
+        "Antioquia": []
+      },
+      {
+        "Arauca": []
+      },
+      {
+        "Atlántico": []
+      },
+      {
+        "Bogotá": []
+      },
+      {
+        "Bolívar": []
+      },
+      {
+        "Boyacá": []
+      },
+      {
+        "Caldas": []
+      },
+      {
+        "Caquetá": []
+      },
+      {
+        "Casanare": []
+      }
+    ]
+  },
+  {
+    "EEUU": [
+      {
+        "Alabama": []
+      },
+      {
+        "Alaska": []
+      },
+      {
+        "Arkansas": []
+      },
+      {
+        "Arizona": []
+      },
+      {
+        "California": []
+      },
+      {
+        "Colorado": []
+      },
+      {
+        "Connecticut": []
+      },
+      {
+        "Dakota": []
+      },
+      {
+        "Delawere": []
+      },
+      {
+        "Florida": [
+
+          {
+            "Albany": [
+              {"Barrio1": []},
+              {"Barrio2": []},
+              {"Barrio3": []},
+              {"Barrio4": []},
+              {"Barrio5": []},
+              {"Barrio6": [
+                {
+                  "Colombia": [
+                    {
+                      "Amazonas": []
+                    },
+                    {
+                      "Antioquia": []
+                    },
+                    {
+                      "Arauca": []
+                    },
+                    {
+                      "Atlántico": []
+                    },
+                    {
+                      "Bogotá": []
+                    },
+                    {
+                      "Bolívar": []
+                    },
+                    {
+                      "Boyacá": []
+                    },
+                    {
+                      "Caldas": []
+                    },
+                    {
+                      "Caquetá": []
+                    },
+                    {
+                      "Casanare": []
+                    }
+                  ]
+                },
+                {
+                  "EEUU": [
+                    {
+                      "Alabama": []
+                    },
+                    {
+                      "Alaska": []
+                    },
+                    {
+                      "Arkansas": []
+                    },
+                    {
+                      "Arizona": []
+                    },
+                    {
+                      "California": []
+                    },
+                    {
+                      "Colorado": []
+                    },
+                    {
+                      "Connecticut": []
+                    },
+                    {
+                      "Dakota": []
+                    },
+                    {
+                      "Delawere": []
+                    },
+                    {
+                      "Florida": [
+                        {
+                          "Albany": [
+                            {
+                              "Barrio1": []
+                            },
+                            {
+                              "Barrio2": []
+                            },
+                            {
+                              "Barrio3": []
+                            },
+                            {
+                              "Barrio4": []
+                            },
+                            {
+                              "Barrio5": []
+                            },
+                            {
+                              "Barrio6": []
+                            }
+                          ]
+                        },
+                        {
+                          "Anaheim": []
+                        },
+                        {
+                          "Avalon": []
+                        },
+                        {
+                          "Brea": []
+                        },
+                        {
+                          "Buellton": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Japon": [
+                    {
+                      "Hokkaido": []
+                    },
+                    {
+                      "Aomori": []
+                    },
+                    {
+                      "Iwate": []
+                    },
+                    {
+                      "Miyagi": []
+                    },
+                    {
+                      "Akita": []
+                    },
+                    {
+                      "Yamagata": []
+                    },
+                    {
+                      "Fukushima": []
+                    },
+                    {
+                      "Ibaraki": []
+                    },
+                    {
+                      "Tochigi": []
+                    },
+                    {
+                      "Okinawa": []
+                    }
+                  ]
+                }]}
+            ]
+          },
+          {
+            "Anaheim": []
+          },
+          {
+            "Avalon": []
+          },
+          {
+            "Brea": []
+          },
+          {
+            "Buellton": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Japon": [
+      {
+        "Hokkaido": []
+      },
+      {
+        "Aomori": []
+      },
+      {
+        "Iwate": []
+      },
+      {
+        "Miyagi": []
+      },
+      {
+        "Akita": []
+      },
+      {
+        "Yamagata": []
+      },
+      {
+        "Fukushima": []
+      },
+      {
+        "Ibaraki": []
+      },
+      {
+        "Tochigi": []
+      },
+      {
+        "Okinawa": []
+      }
+    ]
+  }
+]
