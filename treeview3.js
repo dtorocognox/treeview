@@ -10,13 +10,28 @@ $.getJSON("Tree.json", function($data){
     function draw($data) {
         var $ul = $('<ul></ul>').append('<input type="checkbox">' + $data.name );
         if($data.sons.length > 0){
-            $ul.append('<span> - 🔎 </span>');
+            $ul.append('<span> - </span>').append("<mGlass>🔎</mGlass>");
             for (var i = 0; i<$data.sons.length; i++){
                 $ul.append(draw($data.sons[i]));
             }
         }
         return $ul;
     }
+
+    var $mGlass = $('mGlass');
+
+    $mGlass.click(function () {
+        var $this = $(this);
+        var father = $('<div>').css({
+            "background" : "orange"
+        });
+        father.append($this.parent().parent().find('ul:first').clone());
+        // father.append($this.parent().find('ul').clone());
+        $suLu.append(father);
+
+    });
+
+
 
     $('span').click(function () {
         var $this = $(this);
@@ -57,5 +72,7 @@ $.getJSON("Tree.json", function($data){
             cont($($checkBoxMaster));
         }
     }
+
+
 });
 
