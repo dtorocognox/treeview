@@ -8,9 +8,9 @@ $.getJSON("Tree.json", function($data){
     $('body').append($suLu);
 
     function draw($data) {
-        var $ul = $('<ul></ul>').append('<input type="checkbox">' + $data.name );
+        var $ul = $('<ul></ul>').append('<input type="checkbox">' + '<name>' + $data.name +'</name>' );
         if($data.sons.length > 0){
-            $ul.append('<span> - </span>').append("<mGlass>🔎</mGlass>");
+            $ul.append('<span> - </span>').append("<mGlass>🔎</mGlass>").addClass("papa");
             for (var i = 0; i<$data.sons.length; i++){
                 $ul.append(draw($data.sons[i]));
             }
@@ -25,10 +25,10 @@ $.getJSON("Tree.json", function($data){
         var father = $('<div>').css({
             "background" : "orange"
         });
-        father.append($this.parent().parent().find('ul:first').clone());
-        // father.append($this.parent().find('ul').clone());
+        console.log($('.papa').has('name'));
+        console.log($($this.parent().find('name').not()));
+        father.append($this.parent().find('name').clone());
         $suLu.append(father);
-
     });
 
 
