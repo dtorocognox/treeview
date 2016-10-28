@@ -33,7 +33,7 @@ $.getJSON("Tree.json", function($data){
         if($this.parent().find('input').is(':checked')){
             $this.parent().prop('checked', true);
         }
-        console.log($this.parent().parent().find('input').not('input:first').prop('checked'));
+        console.log($this.parent().parent().find('input').not('input:first').prop('checked')).length;
         console.log($this.parent().parent().find('input').not('input:first'));
         console.log($this.parent().parent().children());
         if($this.parent().find().is(':checked')){
