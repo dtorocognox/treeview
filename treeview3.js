@@ -29,8 +29,16 @@ $.getJSON("Tree.json", function($data){
     });
     $('input').click(function () {
         var $this = $(this);
-        $this.is(':checked') ?  $this.parent().find('input').prop('checked', true) :$this.parent().find('input').prop('checked', false);
-        // $this.parent().find('input').prop('checked', $this.is(':checked'))
+        $this.parent().find('input').prop('checked', $this.is(':checked'));
+        if($this.parent().find('input').is(':checked')){
+            $this.parent().prop('checked', true);
+        }
+        console.log($this.parent().parent().find('input').not('input:first').prop('checked'));
+        console.log($this.parent().parent().find('input').not('input:first'));
+        console.log($this.parent().parent().children());
+        if($this.parent().find().is(':checked')){
+            console.log("si");
+        }
     });
 
 });
