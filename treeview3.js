@@ -1,21 +1,24 @@
-﻿var $suLu = $('<ul class="treeview"><input type="checkbox" id="suLu">Don Papá<span> - </span></ul>');
-
+﻿var $suLu = $('<ul class="treeview"><input type="checkbox" id="suLu">Don Papá<span> - </span></ul>').append('<ul>');
 $.getJSON("Tree.json", function($data){
 
     for(j=0; j<$data.length; j++){
-        $suLu.append(draw($data[j]));
+        $($suLu.find('ul')).append(draw($data[j]));
     }
     $('body').append($suLu);
 
     function draw($data) {
-        var $ul = $('<ul></ul>').append('<input type="checkbox">' + '<name>' + $data.name +'</name>' );
+        var $li = $('<li></li>').append('<input type="checkbox">' + '<name>' + $data.name +'</name>' ).css('list-style-type', 'none');
         if($data.sons.length > 0){
-            $ul.append('<span> - </span>').append("<mGlass>🔎</mGlass>").addClass("papa");
+            $li.append('<span> - </span>').append("<mGlass>🔎</mGlass>").addClass("papa");
+            var tempUl = $('<ul>');
             for (var i = 0; i<$data.sons.length; i++){
-                $ul.append(draw($data.sons[i]));
+                tempUl.append(draw($data.sons[i]))
             }
+            $li.append(tempUl);
+        }else{
+            $li = $('<li></li>').append('<input type="checkbox">' + '<name>' + $data.name +'</name>' ).css('list-style-type', 'none');
         }
-        return $ul;
+        return $li;
     }
 
     var $mGlass = $('mGlass');
@@ -45,33 +48,46 @@ $.getJSON("Tree.json", function($data){
     $('input').click(function () {
         var $this = $(this);
         $this.parent().find('input').prop('checked', $this.is(':checked')).prop('indeterminate', false);
-        cont($this);
+        checkedBox($this);
 
     });
 
-    function cont($this) {
-        var inputVector = $this.parent().parent().find('input').not('input:first');
-        var $checkBoxMaster = $this.parent().parent().find('input:first');
-        var conter = 0;
-        for(i=0; i < inputVector.length; i++){
-            if($(inputVector[i]).prop('checked')){
-                conter++;
+    function checkedBox($this) {
+        var $parent = $this.parents().eq(2).find('input:first');
+        console.log($this);
+        if(!$this.parents().eq(2).hasClass('treeview')){
+            if(!$this.parent().hasClass('treeview')){
+                $parent.prop('indeterminate', true);
             }
-            if(conter>0){
-                $checkBoxMaster.prop('indeterminate', true);
-            }else{
-                $checkBoxMaster.prop('indeterminate', false);
-            }
-        }
-        if (conter == inputVector.length){
-            $checkBoxMaster.prop('indeterminate', false).prop('checked', true);
-        }else{
-            $checkBoxMaster.prop('checked', false);
+            checkedBox($parent);
         }
 
-        if(!$($this.parent().parent()).hasClass('treeview') ){
-            cont($($checkBoxMaster));
-        }
+
+
+        // checkedBox($parent);
+
+        // var inputVector = $this.parent().parent().find('input').not('input:first');
+        // var $checkBoxMaster = $this.parent().parent().find('input:first');
+        // var conter = 0;
+        // for(i=0; i < inputVector.length; i++){
+        //     if($(inputVector[i]).prop('checked')){
+        //         conter++;
+        //     }
+        //     if(conter>0){
+        //         $checkBoxMaster.prop('indeterminate', true);
+        //     }else{
+        //         $checkBoxMaster.prop('indeterminate', false);
+        //     }
+        // }
+        // if (conter == inputVector.length){
+        //     $checkBoxMaster.prop('indeterminate', false).prop('checked', true);
+        // }else{
+        //     $checkBoxMaster.prop('checked', false);
+        // }
+        //
+        // if(!$($this.parent().parent()).hasClass('treeview') ){
+        //     cont($($checkBoxMaster));
+        // }
     }
 
 });
