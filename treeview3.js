@@ -1,11 +1,10 @@
 ﻿var $suLu = $('<ul class="treeview"><input type="checkbox" id="suLu">Don Papá<span> - </span></ul>').append('<ul>');
-
 $.getJSON("Tree.json", function($data){
 
     for(j=0; j<$data.length; j++){
         $($suLu.find('ul:eq(0)')).append(draw($data[j]));
     }
-    $('body').append($suLu);
+    $('body').append($suLu).append($('<ul id="copy">'));
 
     function draw($data) {
         var $li = $('<li></li>').append('<input type="checkbox">' + '<name>' + $data.name +'</name>' ).css('list-style-type', 'none');
@@ -22,7 +21,6 @@ $.getJSON("Tree.json", function($data){
         return $li;
     }
 
-
     $('span').click(function () {
         var $this = $(this);
         $this.parent().find('ul').toggle('slow');
@@ -32,6 +30,7 @@ $.getJSON("Tree.json", function($data){
             $this.text(' - ');
         }
     });
+
     $('input').click(function () {
         var $this = $(this);
         $this.parent().find('input').prop('checked', $this.is(':checked')).prop('indeterminate', false);
@@ -39,6 +38,24 @@ $.getJSON("Tree.json", function($data){
             indeterminateBox($this);
         }
         completeBox($this);
+        nullBox($this);
+
+        function nullBox($this){
+            var inputVector = $this.parent().parent().find('input');
+            var cont =0;
+            for(k=0; k<inputVector.length; k++){
+                if($(inputVector[k]).prop('checked')){
+                    cont++;
+                }
+            }
+            if(cont == 0) {
+                $this.parents().eq(2).find('input:first').prop('indeterminate', false);
+            }
+            if($this.parents().eq(2).hasClass('treeview') || ($this.attr('id') == "suLu")){
+                return false;
+            }
+            nullBox($this.parents().eq(2).find('input:first'));
+        }
 
         function indeterminateBox($this) {
             var $parent = $this.parents().eq(2).find('input:first');
@@ -50,10 +67,10 @@ $.getJSON("Tree.json", function($data){
         }
 
         function completeBox($this) {
+            var inputVector = $this.parent().parent().find('input');
             if($this.prop('id') == 'suLu'){
                 return false;
             }
-            var inputVector = $this.parent().parent().find('input');
             for(k=0; k<inputVector.length; k++){
                 if(!$(inputVector[k]).prop('checked')){
                     return false;
@@ -69,19 +86,17 @@ $.getJSON("Tree.json", function($data){
         }
     });
 
-
     $('mGlass').click(function () {
-        // var $this = $(this);
-        // var father = $('<div>').css({
-        //     "background" : "orange"
-        // });
-        // console.log($('.papa').has('name'));
-        // console.log($($this.parent().find('name').not()));
-        // father.append($this.parent().find('name').clone());
-        // $suLu.append(father);
+
+        var $copy = $('#copy').css({"background-color": "orange",
+                                    "border": "1px solid black",
+                                    "width": "250px"});
+
+        $copy.html($(this).parent().find('ul:first>li').clone().prepend("★"));
+        $copy.children().find('ul ,span, mGlass, input').remove();
+        $copy.prepend($(this).prev().prev().clone());
+
     });
-
-
 
 
 });
